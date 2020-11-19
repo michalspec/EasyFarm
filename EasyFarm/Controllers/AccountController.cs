@@ -2,6 +2,7 @@
 using EasyFarm.DTO;
 using EasyFarm.Models;
 using EasyFarm.PasswordHash;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +16,20 @@ namespace EasyFarm.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly AppDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IOptions<HashingOptions> _options;
-        public AccountController(AppDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, 
-            IOptions<HashingOptions> options)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
-            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
-            _options = options;
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
-
+        [HttpPost, AllowAnonymous]
         public async Task<IActionResult>Register(RegisterModel model)
         {
             if(ModelState.IsValid)
@@ -69,5 +65,34 @@ namespace EasyFarm.Controllers
             }
             return View(model);
         }
+
+        [HttpGet, AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult>Login(LoginModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.Email);
+
+                if(user != null)
+                {
+                    if (PasswordHasher.Check(user.Password, model.Password).Verified)
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: model.RememberMe);
+
+                        return RedirectToAction("Mystery", "Home");
+                    }
+                }
+            }
+            ModelState.AddModelError("", "Invalid login attempt");
+
+            return View(model);
+        }
+        
     }
 }
