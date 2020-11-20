@@ -1,5 +1,4 @@
 ﻿using EasyFarm.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,12 +19,6 @@ namespace EasyFarm.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public IActionResult Mystery()
         {
             return View();
         }

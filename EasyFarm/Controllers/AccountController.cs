@@ -85,7 +85,7 @@ namespace EasyFarm.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: model.RememberMe);
 
-                        return RedirectToAction("Mystery", "Home");
+                        return RedirectToAction("Index", "MainPanel");
                     }
                 }
             }
