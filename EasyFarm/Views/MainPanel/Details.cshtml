@@ -1,0 +1,33 @@
+﻿@model EasyFarm.Models.Cow
+
+@{
+    TempData["Title"] = "Details";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <label asp-for="EaringId"></label>
+                </th>
+                <th>
+                    <label asp-for="Name"></label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <a asp-action="Details">@Model.EaringId</a>
+                    </label>
+                </td>
+                <td>
+                    <label>@Model.Name</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

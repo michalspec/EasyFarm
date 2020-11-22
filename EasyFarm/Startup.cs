@@ -1,5 +1,8 @@
+using AutoMapper;
 using EasyFarm.Data;
+using EasyFarm.IService;
 using EasyFarm.Models;
+using EasyFarm.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,6 +42,10 @@ namespace EasyFarm
                     options.Password.RequireUppercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                 }).AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddScoped<ICowsRepo, CowsRepo>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
