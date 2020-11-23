@@ -58,5 +58,12 @@ namespace EasyFarm.Controllers
 
             return View(cow);      
         }
+
+        public async Task<IActionResult> DetailsForAll()
+        {
+            var herd = await _repo.GetHerd();
+
+            return View(herd);
+        }
     }
 }

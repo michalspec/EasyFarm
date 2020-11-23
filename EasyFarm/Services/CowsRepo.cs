@@ -24,7 +24,9 @@ namespace EasyFarm.Services
             {
                 throw new ArgumentNullException(nameof(cow));
             }
-
+            /*
+             * Check if cow.Mother exist in Database
+             */
             await _context.Cows.AddAsync(cow);
         }
 
@@ -38,6 +40,11 @@ namespace EasyFarm.Services
             }
             return cow;
 
+        }
+
+        public async Task<ICollection<Cow>> GetHerd()
+        {
+            return await _context.Cows.ToListAsync();
         }
 
         public async Task<bool> SaveChangesAsync()

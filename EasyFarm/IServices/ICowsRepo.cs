@@ -13,6 +13,7 @@ namespace EasyFarm.IService
         Task AddCow(Cow cow);
 
         Task<Cow> GetCow(string id);
+        Task<ICollection<Cow>> GetHerd();
 
     }
 }
