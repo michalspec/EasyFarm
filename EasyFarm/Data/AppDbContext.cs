@@ -15,5 +15,6 @@ namespace EasyFarm.Data
 
         }
 
+        public DbSet<Cow> Cows { get; set; }
     }
 }

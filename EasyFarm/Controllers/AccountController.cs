@@ -30,7 +30,7 @@ namespace EasyFarm.Controllers
             return View();
         }
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult>Register(RegisterModel model)
+        public async Task<IActionResult>Register(RegisterUserDto model)
         {
             if(ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace EasyFarm.Controllers
         }
 
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult>Login(LoginModel model)
+        public async Task<IActionResult>Login(LoginUserDto model)
         {
             if(ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace EasyFarm.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: model.RememberMe);
 
-                        return RedirectToAction("Mystery", "Home");
+                        return RedirectToAction("Index", "MainPanel");
                     }
                 }
             }
@@ -93,6 +93,13 @@ namespace EasyFarm.Controllers
 
             return View(model);
         }
-        
+
+        [Authorize]
+        public async Task<IActionResult>Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Cow>
+
+@{
+    TempData["Title"] = "Whole herd";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EaringId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Birthday)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Father)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mother)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lactation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastCalving)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InseminationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Semen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TreatmenNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.USG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SuccessfullInsemination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MilkingDays)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DaysToCalving)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DaysToCalving)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsAlive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MilksEfficiency)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <label>@item.EaringId</label>
+                    </td>
+                    <td>
+                        <label>@item.Name</label>
+                    </td>
+                    <td>
+                        <label>@item.Birthday</label>
+                    </td>
+                    <td>
+                        <label>@item.Father</label>
+                    </td>
+                    <td>
+                        <label>@item.Mother</label>
+                    </td>
+                    <td>
+                        <label>@item.Lactation</label>
+                    </td>
+                    <td>
+                        <label>@item.LastCalving</label>
+                    </td>
+                    <td>
+                        <label>@item.InseminationDate</label>
+                    </td>
+                    <td>
+                        <label>@item.Semen</label>
+                    </td>
+                    <td>
+                        <label>@item.TreatmenNumber</label>
+                    </td>
+                    <td>
+                        <label>@item.USG</label>
+                    </td>
+                    <td>
+                        <label>@item.SuccessfullInsemination</label>
+                    </td>
+                    <td>
+                        <label>@item.MilkingDays</label>
+                    </td>
+                    <td>
+                        <label>@item.Status</label>
+                    </td>
+                    <td>
+                        <label>@item.DaysToCalving</label>
+                    </td>
+                    <td>
+                        <label>@item.Comments</label>
+                    </td>
+                    <td>
+                        <label>@item.IsAlive</label>
+                    </td>
+                    <td>
+                        <label>@item.MilksEfficiency</label>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

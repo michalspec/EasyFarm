@@ -1,0 +1,127 @@
+﻿@model EasyFarm.Models.Cow
+
+@{
+    TempData["Title"] = "Details";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <label asp-for="EaringId"></label>
+                </th>
+                <th>
+                    <label asp-for="Name"></label>
+                </th>
+                <th>
+                    <label asp-for="Birthday"></label>
+                </th>
+                <th>
+                    <label asp-for="Father"></label>
+                </th>
+                <th>
+                    <label asp-for="Mother"></label>
+                </th>
+                <th>
+                    <label asp-for="Lactation"></label>
+                </th>
+                <th>
+                    <label asp-for="LastCalving"></label>
+                </th>
+                <th>
+                    <label asp-for="InseminationDate"></label>
+                </th>
+                <th>
+                    <label asp-for="Semen"></label>
+                </th>
+                <th>
+                    <label asp-for="TreatmenNumber"></label>
+                </th>
+                <th>
+                    <label asp-for="USG"></label>
+                </th>
+                <th>
+                    <label asp-for="SuccessfullInsemination"></label>
+                </th>
+                <th>
+                    <label asp-for="MilkingDays"></label>
+                </th>
+                <th>
+                    <label asp-for="Status"></label>
+                </th>
+                <th>
+                    <label asp-for="DaysToCalving"></label>
+                </th>
+                <th>
+                    <label asp-for="DaysToCalving"></label>
+                </th>
+                <th>
+                    <label asp-for="IsAlive"></label>
+                </th>
+                <th>
+                    <label asp-for="MilksEfficiency"></label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <label>@Model.EaringId</label>
+                </td>
+                <td>
+                    <label>@Model.Name</label>
+                </td>
+                <td>
+                    <label>@Model.Birthday</label>
+                </td>
+                <td>
+                    <label>@Model.Father</label>
+                </td>
+                <td>
+                    <label>@Model.Mother</label>
+                </td>
+                <td>
+                    <label>@Model.Lactation</label>
+                </td>
+                <td>
+                    <label>@Model.LastCalving</label>
+                </td>
+                <td>
+                    <label>@Model.InseminationDate</label>
+                </td>
+                <td>
+                    <label>@Model.Semen</label>
+                </td>
+                <td>
+                    <label>@Model.TreatmenNumber</label>
+                </td>
+                <td>
+                    <label>@Model.USG</label>
+                </td>
+                <td>
+                    <label>@Model.SuccessfullInsemination</label>
+                </td>
+                <td>
+                    <label>@Model.MilkingDays</label>
+                </td>
+                <td>
+                    <label>@Model.Status</label>
+                </td>
+                <td>
+                    <label>@Model.DaysToCalving</label>
+                </td>
+                <td>
+                    <label>@Model.Comments</label>
+                </td>
+                <td>
+                    <label>@Model.IsAlive</label>
+                </td>
+                <td>
+                    <label>@Model.MilksEfficiency</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

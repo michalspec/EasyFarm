@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EasyFarm.DTO
 {
-    public class RegisterModel
+    public class LoginUserDto
     {
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -14,12 +14,10 @@ namespace EasyFarm.DTO
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password{ get; set; }
+        public string Password { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The password and confirmation are not match")]
-        [Display(Name = "Confirm password")]
-        public string ConfirmPassword{ get; set; }
+        [Display(Name = "Remember me")]
+        public bool RememberMe { get; set; }
+
     }
 }

@@ -1,0 +1,45 @@
+﻿@model EasyFarm.DTO.InseminationDto
+
+@{
+    TempData["title"] = "Add Insemination";
+    Layout = "_Layout";
+
+    List<Cow>herd = ViewData["Herd"] as List<Cow>;
+}
+
+<div class="row">
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="EaringId"></label>
+            <select asp-for=EaringId>
+                @foreach (var item in herd)
+                {
+                    <option>@item.EaringId</option>
+                }
+            </select>
+            <span asp-validation-for="InseminationDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="InseminationDate"></label>
+            <input asp-for="InseminationDate" />
+            <span asp-validation-for="InseminationDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Semen"></label>
+            <input asp-for="Semen" />
+            <span asp-validation-for="Semen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TreatmenNumber"></label>
+            <input asp-for="TreatmenNumber" />
+            <span asp-validation-for="TreatmenNumber" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-secondary">Save</button>
+    </form>
+</div>
