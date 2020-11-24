@@ -10,7 +10,6 @@ namespace EasyFarm.DTO
     public class AddCalfDto
 
     {
-        [Key]
         [StringLength(maximumLength: 14)]
         public string EaringId { get; set; }
         [Required]
@@ -19,7 +18,7 @@ namespace EasyFarm.DTO
         [Required]
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
-        [StringLength(maximumLength: 50)]
+        [StringLength(maximumLength: 14)]
         public Cow Mother { get; set; }
     }
 }

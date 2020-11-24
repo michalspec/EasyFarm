@@ -13,6 +13,7 @@ namespace EasyFarm.Profiles
         public CowProfiles()
         {
             CreateMap<AddCalfDto, Cow>();
+            CreateMap<InseminationDto, Cow>();
         }
     }
 }
